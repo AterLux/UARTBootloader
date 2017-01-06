@@ -94,6 +94,7 @@ It is allowed to repeately perform *BLST* to start flashing process over again.
 ```
 
 **Reply:** *0x62 0x6C 0x70 0x77 pg* (**blpg.**) - page is successfully flashed
+
 *0x62 0x6C 0x65 0x72* (**bler**) - cc byte doesn't match, or unexpected pg value
 
 ### BLXT
