@@ -44,7 +44,7 @@ When power-up, or reset, and all conditions above are met (or those checks are d
   * *MAGIC_WRITE_WHEN_FLASHED* - 1 - if bootloader have to write the value itself, 0 - if it would be performed by the firmware.
   * *MAGIC_EEPROM_ADDRESS* - address in EEPROM, where magic value is stored.
 
-  * *FORCE_METHOD* - a method for forced start: 0 - disabled, 1 - low level, 2 - high level (requires external pull-up), 3 - a jumper between two pins, 4 - low level on two pins
+  * *FORCE_METHOD* - a method for forced start: 0 - disabled, 1 - low level, 2 - high level (requires external pull-down), 3 - a jumper between two pins, 4 - low level on two pins
   * *FORCE_PORT*, *FORCE_DDR*, *FORCE_PIN*, *FORCE_PIN_NUM* - the I/O registers and bit number to access the pin
   * *FORCE_PORT2*, *FORCE_DDR2*, *FORCE_PIN2*, *FORCE_PIN_NUM2* - the same for the second pin, for methods 3 and 4
 4. Setup the MCU fuses:
