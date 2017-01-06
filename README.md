@@ -32,11 +32,11 @@ When power-up, or reset, and all conditions above are met (or those checks are d
   * *HARDWARE_ID* - Exactly 14 characters that returned with blst reply, to identify a hardware. I reccomend to use combination of your nickname and the device name. For example: *"JnSmithBlinker"*
   * *F_CPU* - define the CPU frequency, as it enabled by hardware and the fuse settings
   * *UART_SPEED* - define the desired UART speed. Note: not all the speeds are exactly supported. Refer to the MCU datasheet
-  * *UART_2X* - UART 2x mode (refer to the MCU datasheet)
+  * *UART_2X* - UART 2x mode (refer to the MCU datasheet): 1 - enabled, 0 - disabled
   * *UART_PARITY* - UART parity mode: 0 - none, 1 - odd, 2 - even
   * *UART_STOP_BITS* - number of stop bits: 1 or 2
   
-  * *BLINKER* - enable blinker options: 1 - enable, 0 - disable;
+  * *BLINKER* - enable blinker options: 1 - enable, 0 - disable
   * *BLINKER_DDR*, *BLINKER_PORT*, *BLINKER_PIN_NUM* - I/O registers and bit number to access blinker pin (if enabled)
   * *BLINKER_PATTERN_...* - different patterns of blinking (read description in the source)
   
@@ -74,13 +74,13 @@ Request to start flashing process
 
 Flasing the page.
 
-Before loading the first page, BLST must be performed.
+Before loading the first page, *BLST* must be performed.
 The flashing process must always start from page 0 and page numbers must go sequentially
-It is allowed to repeately perform BLST to start flashing process over again.
+It is allowed to repeately perform *BLST* to start flashing process over again.
 
 
 **Request:** *0x42 0x4C 0x50 0x47 pg `<data>` cc* (**BLPG...**) 
-* *pg* - # of page (0 <= *pg* < *np*)
+* *pg* - # of page `(0 <= *pg* < *np*)`
 * *`<data>`* - *psw* * 2 bytes of page data 
 * *cc* - CRC with polinomial x^8 +x^7 +x^6 +x^3 +x^2 +x +1 over all bytes in *`<data>`* field, MSB first, initialized with 0xFF:
 ```c         
@@ -102,7 +102,7 @@ Finalize the flashing process and jump to the firmware
 
 **Request:** *0x42 0x4C 0x58 0x54* (**BLXT**) 
 
-**Reply:**  *0x62 0x6C 0x78 0x74* (*blxt*) 
+**Reply:**  *0x62 0x6C 0x78 0x74* (**blxt**) 
 
 
 ## Have any questions?
