@@ -461,8 +461,8 @@ test_blpg:
     ldi r19, (PAGESIZE * 2)
     mul r16, r19
     movw r30, r0
-    ldi r19, PAGESIZE
   .endif
+  ldi r19, PAGESIZE
 
   ldi r20, 0xFF
 
